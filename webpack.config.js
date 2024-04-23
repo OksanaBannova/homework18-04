@@ -21,10 +21,20 @@ module.exports = {
                     'css-loader'
                 ]
         },
+        {
+            test: /\.html$/,
+            use: [
+                HtmlWebpackPlugin.loader,
+                'html-loader'
+            ]
+        }
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: './index.html',
+        }),
     
         new MiniCSSExtractPlugin()
     ]
